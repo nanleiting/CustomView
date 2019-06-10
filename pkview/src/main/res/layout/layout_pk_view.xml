@@ -3,8 +3,6 @@
     android:id="@+id/llContent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
     android:gravity="center"
     android:orientation="horizontal">
 
@@ -30,7 +28,8 @@
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
             android:padding="5dp"
-            android:src="@mipmap/ic_launcher" />
+            android:background="@color/white"
+            android:src="@drawable/icon_yes" />
     </FrameLayout>
 
     <TextView
@@ -41,9 +40,9 @@
         android:background="@color/colorAccent" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:src="@mipmap/icon_pk"
-        android:layout_height="wrap_content" />
+        android:layout_width="40dp"
+        android:src="@drawable/icon_pk"
+        android:layout_height="40dp" />
 
     <TextView
         android:id="@+id/iv_right"
@@ -73,7 +72,8 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical|right"
             android:layout_margin="5dp"
+            android:background="@color/white"
             android:padding="5dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/icon_no" />
     </FrameLayout>
 </LinearLayout>
