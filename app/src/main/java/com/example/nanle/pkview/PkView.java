@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 /**
  * author：Martin Nan on 2019/6/10
- * ceshi 修改 分支1
+ * ceshi 修改
  */
 public class PkView extends LinearLayout {
     private Context context;
