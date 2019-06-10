@@ -17,7 +17,6 @@ import android.widget.TextView;
  */
 public class PkView extends LinearLayout {
     private Context context;
-    private LinearLayout llContent;
     private TextView tvLeft, ivLeft, ivRight, tvRight;
     ImageView iv_yes, iv_no;
     private int left_num;
@@ -50,7 +49,6 @@ public class PkView extends LinearLayout {
             return;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.layout_pk_view, this);
-        llContent = (LinearLayout) v.findViewById(R.id.llContent);
         ivLeft = (TextView) v.findViewById(R.id.iv_left);
         ivRight = (TextView) v.findViewById(R.id.iv_right);
 
