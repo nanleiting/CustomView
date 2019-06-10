@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PkView">
+        <attr name="left_color" format="color" />
+        <attr name="right_color" format="color" />
+        <attr name="left_num" format="integer" />
+        <attr name="right_num" format="integer" />
+    </declare-styleable>
+</resources>
