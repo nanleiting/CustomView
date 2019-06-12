@@ -13,3 +13,4 @@ Step 2. Add the dependency
 	dependencies {
 	        implementation 'com.github.nanleiting:pkView:v1.0.0'
 	}
+https://jitpack.io/
