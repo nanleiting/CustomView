@@ -1,4 +1,4 @@
-package com.example.nanle.pkview;
+package com.martin.nanle.pkview;
 
 import org.junit.Test;
 

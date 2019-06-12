@@ -1,4 +1,4 @@
-package com.example.pkview;
+package com.martin.customview;
 
 import android.content.Context;
 import android.content.res.TypedArray;

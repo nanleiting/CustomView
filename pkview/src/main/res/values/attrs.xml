@@ -6,4 +6,28 @@
         <attr name="left_num" format="integer" />
         <attr name="right_num" format="integer" />
     </declare-styleable>
+    <declare-styleable name="NiceImageView">
+        <attr name="is_circle" format="boolean" />
+        <attr name="is_cover_src" format="boolean" />
+        <attr name="corner_radius" format="dimension" />
+        <attr name="corner_top_left_radius" format="dimension" />
+        <attr name="corner_top_right_radius" format="dimension" />
+        <attr name="corner_bottom_left_radius" format="dimension" />
+        <attr name="corner_bottom_right_radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="inner_border_width" format="dimension" />
+        <attr name="inner_border_color" format="color" />
+        <attr name="mask_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="CircleBar">
+        <attr name="pcolor" format="color" />
+        <attr name="color" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="width" format="dimension" />
+        <attr name="high" format="dimension" />
+        <attr name="tvNum" format="integer" />
+        <attr name="c_border_width" format="dimension" />
+    </declare-styleable>
 </resources>

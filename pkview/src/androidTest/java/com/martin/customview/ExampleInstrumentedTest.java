@@ -1,4 +1,4 @@
-package com.example.nanle.pkview;
+package com.martin.customview;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.nanle.pkview", appContext.getPackageName());
+        assertEquals("com.example.pkview.test", appContext.getPackageName());
     }
 }
