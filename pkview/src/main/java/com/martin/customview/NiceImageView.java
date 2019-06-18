@@ -18,6 +18,7 @@ import android.util.AttributeSet;
 
 /**
  * author：Martin Nan on 2019/6/11
+ * 圆形图片View
  */
 public class NiceImageView extends AppCompatImageView {
     private Context context;

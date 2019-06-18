@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.martin.customview.CircleBar
+            android:id="@+id/circle_bar_h"
+            app:c_border_width="3dp"
+            app:color="#CCCCCC"
+            app:intervalTime="3600"
+            app:pcolor="@color/colorAccent"
+            app:textColor="#ff0000"
+            app:textSize="20sp"
+            app:tvNum="24"
+            app:unit="h"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#00ffffff" />
+
+        <TextView
+            android:id="@+id/tv_content_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="时" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.martin.customview.CircleBar
+            android:id="@+id/circle_bar_m"
+            app:c_border_width="3dp"
+            app:color="#CCCCCC"
+            app:intervalTime="60"
+            app:pcolor="@color/colorAccent"
+            app:textColor="#ff0000"
+            app:textSize="15sp"
+            app:tvNum="60"
+            app:unit="m"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="#00ffffff" />
+
+        <TextView
+            android:id="@+id/tv_content_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.martin.customview.CircleBar
+            android:id="@+id/circle_bar_s"
+            app:c_border_width="3dp"
+            app:color="#CCCCCC"
+            app:intervalTime="1"
+            app:pcolor="@color/colorAccent"
+            app:textColor="#ff0000"
+            app:textSize="10sp"
+            app:tvNum="60"
+            app:unit="s"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00ffffff" />
+
+        <TextView
+            android:id="@+id/tv_content_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="秒" />
+    </LinearLayout>
+
+</LinearLayout>

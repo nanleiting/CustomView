@@ -25,14 +25,5 @@ public class BezierListener implements ValueAnimator.AnimatorUpdateListener {
         target.setAlpha(1 - animation.getAnimatedFraction());
 
         // 用于纪录当前的位置,取值范围[0,1]映射Path的整个长度
-//        float currentValue = (float) animation.getAnimatedValue();
-//        if (pointF. == 1) {
-//            clickCountBackups--;
-//            Log.d("post", "clickCount:" + clickCount + "  " + "   clickCountBackups: " + clickCountBackups);
-//            if (clickCountBackups == 0) {
-//                Log.d("post", "动画全部执行完毕");
-//                clickCount = 0;
-//            }
-//        }
     }
 }

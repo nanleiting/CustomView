@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SuperLikeLayoutActivity">
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.martin.customview.GiveALikeView.SuperLikeLayout
+            android:id="@+id/super_like_layout"
+            android:layout_width="match_parent"
+            app:eruption_element_amount="6"
+            android:layout_height="match_parent"
+            />
+        <Button
+            android:id="@+id/btn3"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="动画" />
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>

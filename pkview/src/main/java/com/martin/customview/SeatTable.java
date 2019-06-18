@@ -31,6 +31,7 @@ import java.util.Collections;
 
 /**
  * author：Martin Nan on 2019/6/14
+ * 选择座位View
  */
 public class SeatTable extends View {
     private final boolean DBG = false;
