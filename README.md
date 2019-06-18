@@ -1,7 +1,4 @@
 # pkView
-Android  双选项pk 投票的 自定义view
-Add it in your root build.gradle at the end of repositories:
-
 	allprojects {
 		repositories {
 			...
@@ -11,5 +8,6 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.nanleiting:pkView:v1.0.0'
+	        implementation 'com.github.nanleiting:CustomView:1.0.3'
 	}
+https://jitpack.io/
