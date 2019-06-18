@@ -32,12 +32,17 @@ public class CircleBar extends RelativeLayout {
 
     /*字体大小*/
     //    private int width, height;//宽高
+    private int initDataKeep;//初始默认数字；
     private int initData;//初始默认数字；
     private int nowDataStr;//记录当前 绘制的 秒数
     private int nowData;//进度条
+    private  int intervalTimeCircle =0;
+    private  int intervalTimeText =1000/250;
 
-
+    private Handler handler;
+    private Runnable runnableCircle, runnableText;
     private StopListener stopListener;
+    private String unit="";
 
     public void setStopListener(StopListener stopListener) {
         this.stopListener = stopListener;
@@ -64,7 +69,12 @@ public class CircleBar extends RelativeLayout {
 //        width = (int) a.getDimension(R.styleable.CircleBar_width, 0);
 //        high = (int) a.getDimension(R.styleable.CircleBar_high, 0);
         initData = a.getInteger(R.styleable.CircleBar_tvNum, 0);
+        initDataKeep=initData;
+        intervalTimeText = a.getInteger(R.styleable.CircleBar_intervalTime, 0);
+        intervalTimeCircle=intervalTimeText*1000/250;
+        unit =a.getString(R.styleable.CircleBar_unit);
         nowDataStr = initData;
+        initData=initData*intervalTimeText;
          int circleBorderWidth = (int) a.getDimension(R.styleable.CircleBar_c_border_width, 0);//条圆环的宽度
         backCirclePaint = new Paint();
         backCirclePaint.setStyle(Paint.Style.STROKE);
@@ -83,8 +93,6 @@ public class CircleBar extends RelativeLayout {
         upCirclePaint.setColor(progressColor);
         upCirclePaint.setStrokeWidth(circleBorderWidth);
         a.recycle();
-
-
     }
 
     @Override
@@ -112,9 +120,9 @@ public class CircleBar extends RelativeLayout {
         int centerX = getMeasuredWidth() / 2;
 
 
-        float textWidth = textPaint.measureText(nowDataStr + "s");
+        float textWidth = textPaint.measureText(nowDataStr + unit);
         int textHeight = (int) (Math.ceil(textPaint.getFontMetrics().descent - textPaint.getFontMetrics().ascent) + 2);
-        canvas.drawText(nowDataStr + "s", centerX - textWidth / 2, centerX + textHeight / 4, textPaint);
+        canvas.drawText(nowDataStr + unit, centerX - textWidth / 2, centerX + textHeight / 4, textPaint);
 
 
         canvas.drawArc(
@@ -158,25 +166,21 @@ public class CircleBar extends RelativeLayout {
         postInvalidate();
     }
 
-    private Handler handler;
-    private Runnable runnable1, runnable2;
-
     public void start() {
-
-        runnable1 = new Runnable() {
+        setNowData(initDataKeep);
+        setNowDataStr(initDataKeep);
+        runnableCircle = new Runnable() {
             @Override
             public void run() {
                 // handler自带方法实现定时器
                 try {
-
                     if (nowData < initData * 1000) {
-                        handler.postDelayed(this, initData * 1000 / 25);
-                        nowData += initData * 1000 / 25;
-
+                        handler.postDelayed(this, initData * intervalTimeCircle);
+                        nowData += initData * intervalTimeCircle;
                         setNowData(nowData);
-
                     } else {
                         if (stopListener != null) {
+                            stop();
                             stopListener.onStopListener();
                         }
                     }
@@ -187,19 +191,17 @@ public class CircleBar extends RelativeLayout {
             }
         };
 
-        handler.postDelayed(runnable1, initData * 1000 / 25); //每隔initData * 1000 / 25ms执行
+        handler.postDelayed(runnableCircle, initData * intervalTimeCircle); //每隔initData * 1000 / 25ms执行
 
-        runnable2 = new Runnable() {
+        runnableText = new Runnable() {
             @Override
             public void run() {
                 // handler自带方法实现定时器
                 try {
                     if (nowDataStr != 0) {
-                        handler.postDelayed(this, 1000);
+                        handler.postDelayed(this, intervalTimeText*1000);
                         nowDataStr -= 1;
-
                         setNowDataStr(nowDataStr);
-
                     }
 
                 } catch (Exception e) {
@@ -208,16 +210,12 @@ public class CircleBar extends RelativeLayout {
             }
         };
 
-        handler.postDelayed(runnable2, 1000); //每隔1s执行
-
-
+        handler.postDelayed(runnableText, intervalTimeText*1000); //每隔1s执行
     }
-
-    public void stop() {
-
+    private void stop() {
         try {
-            handler.removeCallbacks(runnable2);
-            handler.removeCallbacks(runnable1);
+            handler.removeCallbacks(runnableText);
+            handler.removeCallbacks(runnableCircle);
         } catch (Exception e) {
             e.printStackTrace();
         }

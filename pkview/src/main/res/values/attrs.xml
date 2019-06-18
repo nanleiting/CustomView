@@ -28,6 +28,20 @@
         <attr name="width" format="dimension" />
         <attr name="high" format="dimension" />
         <attr name="tvNum" format="integer" />
+        <attr name="intervalTime" format="integer" />
+        <attr name="unit" format="string" />
         <attr name="c_border_width" format="dimension" />
     </declare-styleable>
+
+
+    <declare-styleable name="SeatTableView">
+        <attr name="seat_checked" format="reference" />
+        <attr name="seat_sold" format="reference" />
+        <attr name="seat_available" format="reference" />
+        <attr name="overview_checked" format="color" />
+        <attr name="overview_sold" format="color" />
+        <attr name="txt_color" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="SuperLikeLayout"><attr format="integer" name="eruption_element_amount"/><attr format="integer" name="max_eruption_total"/><attr format="boolean" name="show_emoji"/><attr format="boolean" name="show_text"/></declare-styleable>
+    <dimen name="slike_default_text_size">14sp</dimen>
 </resources>
