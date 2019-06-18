@@ -1,4 +1,11 @@
-# pkView
+Step 1. Add the JitPack repository to your build file
+
+gradle
+maven
+sbt
+leiningen
+Add it in your root build.gradle at the end of repositories:
+
 	allprojects {
 		repositories {
 			...
@@ -8,6 +15,6 @@
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.nanleiting:CustomView:1.0.3'
+	        implementation 'com.github.nanleiting:CustomView:Tag'
 	}
 https://jitpack.io/
