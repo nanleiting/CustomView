@@ -76,6 +76,7 @@ public class LikeTextView extends AppCompatTextView {
         List<BitmapData> bitmaps = new ArrayList<>();
         String clickCountStr = clickCount + "";
         int offset_x = 0;
+        int offset_y = 0;
         char[] chars = clickCountStr.toCharArray();
         if (chars != null && chars.length > 0) {
             for (int i = 0; i < chars.length; i++) {
@@ -83,8 +84,9 @@ public class LikeTextView extends AppCompatTextView {
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), numberDrawableArray[index]);
                 if (i > 0) {
                     offset_x += bitmap.getWidth();
+                    offset_y += 10;
                 }
-                BitmapData bitmapData = new BitmapData(bitmap, offset_x,0);
+                BitmapData bitmapData = new BitmapData(bitmap, offset_x,offset_y);
                 bitmaps.add(bitmapData);
             }
         }
@@ -94,7 +96,7 @@ public class LikeTextView extends AppCompatTextView {
         }
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), levelDrawableArray[level]);
 //        offset_x += bitmap.getWidth();
-        BitmapData bitmapData = new BitmapData(bitmap, offset_x+50,20);
+        BitmapData bitmapData = new BitmapData(bitmap, offset_x+80,offset_y+20);
         bitmaps.add(bitmapData);
         return bitmaps;
     }

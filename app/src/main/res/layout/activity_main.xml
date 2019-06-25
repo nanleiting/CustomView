@@ -13,4 +13,25 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp" />
 
+    <com.martin.customview.pkview.CompetitionView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        app:left_num_c="1"
+        app:left_color_start="@color/colorPrimaryDark"
+        app:left_color_end="@color/colorAccent"
+        app:right_num_c="0" />
+
+    <com.martin.customview.pkview.CompetitionView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:left_num_c="0"
+        app:right_num_c="0" />
+
+    <com.martin.customview.pkview.CompetitionView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:left_num_c="0"
+        app:right_num_c="1" />
 </LinearLayout>

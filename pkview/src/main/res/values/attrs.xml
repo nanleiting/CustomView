@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="AcodeEmojiView">
+        <attr name="once_amount" format="integer" />
+        <attr name="ma_bottom" format="integer" />
+    </declare-styleable>
     <declare-styleable name="PkView">
         <attr name="left_color" format="color" />
         <attr name="right_color" format="color" />
         <attr name="left_num" format="integer" />
         <attr name="right_num" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="CompetitionView">
+        <attr name="left_color_start" format="color" />
+        <attr name="left_color_end" format="color" />
+        <attr name="right_color_start" format="color" />
+        <attr name="right_color_end" format="color" />
+        <attr name="left_text_color" format="color" />
+        <attr name="left_percent_text_color" format="color" />
+        <attr name="right_text_color" format="color" />
+        <attr name="right_percent_text_color" format="color" />
+        <attr name="left_num_c" format="integer" />
+        <attr name="right_num_c" format="integer" />
+        <attr name="left_str" format="string" />
+        <attr name="right_str" format="string" />
+        <attr name="can_click" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="TimeCountTextView">
+        <attr name="sum_time" format="integer" />
+        <attr name="count_down_time" format="integer" />
+        <attr name="is_start" format="boolean" />
     </declare-styleable>
     <declare-styleable name="NiceImageView">
         <attr name="is_circle" format="boolean" />
@@ -40,8 +64,13 @@
         <attr name="seat_available" format="reference" />
         <attr name="overview_checked" format="color" />
         <attr name="overview_sold" format="color" />
-        <attr name="txt_color" format="color"/>
+        <attr name="txt_color" format="color" />
     </declare-styleable>
-    <declare-styleable name="SuperLikeLayout"><attr format="integer" name="eruption_element_amount"/><attr format="integer" name="max_eruption_total"/><attr format="boolean" name="show_emoji"/><attr format="boolean" name="show_text"/></declare-styleable>
+    <declare-styleable name="SuperLikeLayout">
+        <attr name="eruption_element_amount" format="integer" />
+        <attr name="max_eruption_total" format="integer" />
+        <attr name="show_emoji" format="boolean" />
+        <attr name="show_text" format="boolean" />
+    </declare-styleable>
     <dimen name="slike_default_text_size">14sp</dimen>
 </resources>

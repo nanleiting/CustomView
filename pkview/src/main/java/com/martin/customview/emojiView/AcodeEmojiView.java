@@ -6,6 +6,8 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -34,7 +36,7 @@ public class AcodeEmojiView extends RelativeLayout {
     private Context mContext;
     private int screenWidth;
     private int screenHeight;
-    private static final int ERUPTION_ELEMENT_AMOUNT = 6;
+    private  final int ERUPTION_ELEMENT_AMOUNT = 6;//每次添加几个View
     //动画插值器，其实就是几种动画效果
     private Interpolator[] interpolators = new Interpolator[4];
     //图片
@@ -47,9 +49,10 @@ public class AcodeEmojiView extends RelativeLayout {
     private int clickCount;
     //点击次数备份   这个用于真正的统计点击次数
     private int clickCountBackups;
-    RelativeLayout rl_add_view;
-    LikeTextView tv_content;
-  int[] numberDrawableArray,levelDrawableArray;
+    private   RelativeLayout rl_add_view;
+    private LikeTextView tv_content;
+    private  int onceAmount;
+    private  int maBottom;
     public void setIconArray(int[] emojiArray,int[] numberDrawableArray,int[] levelDrawableArray) {
         this.icons = emojiArray;
         tv_content.setNumberDrawableArray(numberDrawableArray);
@@ -64,6 +67,10 @@ public class AcodeEmojiView extends RelativeLayout {
         super(context, attrs);
         this.mContext = context;
         setWillNotDraw(false);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.AcodeEmojiView, 0, 0);
+        onceAmount = ta.getInteger(R.styleable.AcodeEmojiView_once_amount, ERUPTION_ELEMENT_AMOUNT);
+        maBottom = ta.getInteger(R.styleable.AcodeEmojiView_ma_bottom, 130);
+        ta.recycle();
         init();
     }
     private void init() {
@@ -75,7 +82,6 @@ public class AcodeEmojiView extends RelativeLayout {
         interpolators[3] = new LinearInterpolator();  // 以常量速率改变
         rl_add_view = findViewById(R.id.rl_add_view);
         tv_content = findViewById(R.id.tv_content);
-
     }
     /**
      * 添加emoji
@@ -83,13 +89,13 @@ public class AcodeEmojiView extends RelativeLayout {
      */
     public void addImageView(View view) {
         clickCount++;
-        clickCountBackups += ERUPTION_ELEMENT_AMOUNT;
+        clickCountBackups += onceAmount;
         startX = view.getX() + view.getWidth() / 2;
-        startY = view.getY() - 130;
+        startY = view.getY() - maBottom;
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.width = 80;
         params.height = 80;
-        for (int i = 0; i < ERUPTION_ELEMENT_AMOUNT; i++) {
+        for (int i = 0; i < onceAmount; i++) {
             final ImageView iv1 = new ImageView(mContext);
             iv1.setLayoutParams(params);
             iv1.setImageResource(icons[new Random().nextInt(icons.length)]);
@@ -128,7 +134,7 @@ public class AcodeEmojiView extends RelativeLayout {
         ValueAnimator bezier = getBezierValueAnimator(iv);
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(iv, SCALE_X, 1f, 0.7f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(iv, SCALE_Y, 1f, 0.7f);
-        set.setDuration(1000);
+        set.setDuration(3000);
         set.playTogether(scaleX, scaleY, bezier);
         return set;
     }
@@ -143,7 +149,8 @@ public class AcodeEmojiView extends RelativeLayout {
         ValueAnimator animator = ValueAnimator.ofObject(evaluator, randomStartPoint, randomEndPoint);
         animator.addUpdateListener(new BezierListener(target));
         animator.setTarget(target);
-        animator.setInterpolator(interpolators[new Random().nextInt(4)]);
+//        animator.setInterpolator(interpolators[new Random().nextInt(4)]);
+        animator.setInterpolator(new DecelerateInterpolator());
         animator.setDuration(1000);
         return animator;
     }

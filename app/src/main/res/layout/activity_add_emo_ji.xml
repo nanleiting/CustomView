@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#212121"
     tools:context=".AddEmoJiActivity">
-
 
     <com.martin.customview.emojiView.AcodeEmojiView
         android:id="@+id/view_point"
         android:layout_width="match_parent"
+        app:once_amount="6"
+        app:ma_bottom="30"
+        android:layout_marginBottom="100dp"
         android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/btn3"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="动画" />
     </com.martin.customview.emojiView.AcodeEmojiView>
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btn3"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:text="动画" />
+</RelativeLayout>

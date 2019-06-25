@@ -71,7 +71,7 @@ public class MyGiftView extends RelativeLayout {
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, View.SCALE_Y, 0.2f, 1f);
 
         AnimatorSet enter = new AnimatorSet();
-        enter.setDuration(500);
+        enter.setDuration(1000);
         enter.setInterpolator(new LinearInterpolator());//线性变化
         enter.playTogether(scaleX,scaleY);
         enter.setTarget(view);
