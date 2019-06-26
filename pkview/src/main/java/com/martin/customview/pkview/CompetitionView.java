@@ -175,4 +175,44 @@ public class CompetitionView extends RelativeLayout {
 
         void onClickRight();
     }
+
+    public void setLeftTextSize(int leftTextSize) {
+        this.leftTextSize = leftTextSize;
+        btnLeft.setTextSize(leftTextSize);
+    }
+
+    public void setLeftPercentTextSize(int leftPercentTextSize) {
+        this.leftPercentTextSize = leftPercentTextSize;
+        tvLeft.setTextSize(leftPercentTextSize);
+    }
+
+    public void setRightTextSize(int rightTextSize) {
+        this.rightTextSize = rightTextSize;
+       btnRight.setTextSize(rightTextSize);
+    }
+
+    public void setRightPercentTextSize(int rightPercentTextSize) {
+        this.rightPercentTextSize = rightPercentTextSize;
+        tvRight.setTextSize(rightPercentTextSize);
+    }
+
+    public void setLeftTextColor(int leftTextColor) {
+        this.leftTextColor = leftTextColor;
+        btnLeft.setTextColor(leftTextColor);
+    }
+
+    public void setLeftPercentColor(int leftPercentColor) {
+        this.leftPercentColor = leftPercentColor;
+        tvLeft.setTextColor(leftPercentColor);
+    }
+
+    public void setRightTextColor(int rightTextColor) {
+        this.rightTextColor = rightTextColor;
+        btnRight.setTextColor(rightTextColor);
+    }
+
+    public void setRightPercentColor(int rightPercentColor) {
+        this.rightPercentColor = rightPercentColor;
+        tvRight.setTextColor(rightPercentColor);
+    }
 }
