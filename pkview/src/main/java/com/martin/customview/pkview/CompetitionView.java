@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -16,6 +17,10 @@ import com.martin.customview.R;
  * author：Martin Nan on 2019/6/24
  */
 public class CompetitionView extends RelativeLayout {
+    private int leftTextSize;
+    private int leftPercentTextSize;
+    private int rightTextSize;
+    private int rightPercentTextSize;
     private Context mContext;
     private boolean canClick;//是否可以点击
     private int leftNum;
@@ -66,6 +71,10 @@ public class CompetitionView extends RelativeLayout {
         leftPercentColor = ta.getColor(R.styleable.CompetitionView_left_percent_text_color, Color.parseColor("#FFFFFF"));
         rightTextColor = ta.getColor(R.styleable.CompetitionView_right_text_color, Color.parseColor("#FFFFFF"));
         rightPercentColor = ta.getColor(R.styleable.CompetitionView_right_percent_text_color, Color.parseColor("#FFFFFF"));
+        rightTextSize = (int) ta.getDimension(R.styleable.CompetitionView_right_text_size, 30);
+        rightPercentTextSize = (int) ta.getDimension(R.styleable.CompetitionView_right_percent_text_size, 30);
+        leftTextSize = (int) ta.getDimension(R.styleable.CompetitionView_left_text_size, 30);
+        leftPercentTextSize = (int) ta.getDimension(R.styleable.CompetitionView_left_percent_text_size, 30);
         initView();
         ta.recycle();
     }
@@ -89,6 +98,12 @@ public class CompetitionView extends RelativeLayout {
         tvRight.setTextColor(rightPercentColor);
         btnLeft.setTextColor(leftTextColor);
         btnRight.setTextColor(rightTextColor);
+
+        tvLeft.setTextSize(TypedValue.COMPLEX_UNIT_PX, leftPercentTextSize);
+        tvRight.setTextSize(TypedValue.COMPLEX_UNIT_PX, rightPercentTextSize);
+        btnLeft.setTextSize(TypedValue.COMPLEX_UNIT_PX, leftTextSize);
+        btnRight.setTextSize(TypedValue.COMPLEX_UNIT_PX, rightTextSize);
+
         btnRight.setText(rightStr);
         btnLeft.setText(leftStr);
         if (canClick) {

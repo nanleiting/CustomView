@@ -24,6 +24,10 @@
         <attr name="left_str" format="string" />
         <attr name="right_str" format="string" />
         <attr name="can_click" format="boolean" />
+        <attr name="right_text_size" format="dimension" />
+        <attr name="left_text_size" format="dimension" />
+        <attr name="left_percent_text_size" format="dimension" />
+        <attr name="right_percent_text_size" format="dimension" />
     </declare-styleable>
     <declare-styleable name="TimeCountTextView">
         <attr name="sum_time" format="integer" />
